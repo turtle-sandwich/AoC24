@@ -41,6 +41,7 @@ pub fn solve(day: usize, part: usize, input: String) -> PuzzleResult {
         (11, 2) => day11::part2(input),
         (12, 1) => day12::part1(input),
         (13, 1) => day13::part1(input),
+        (13, 2) => day13::part2(input),
         (day, part) => Err(format!("no solution for day {day} part {part}"))?,
     }
 }
