@@ -15,10 +15,11 @@ pub fn part1(input: String) -> crate::PuzzleResult {
         for (j, plant) in line.chars().enumerate() {
             let region = if let Some(region) = if i > 0 && plants[i - 1][j].0 == plant {
                 // belongs to region above
-                let region = plants[i - 1][j].1;
+                let mut region = plants[i - 1][j].1;
                 if j > 0 && plants[i][j - 1].0 == plant && plants[i][j - 1].1 != region {
                     // also belongs to region to the left -> merge regions
-                    let other_region = plants[i][j - 1].1;
+                    let mut other_region = plants[i][j - 1].1;
+                    (region, other_region) = (region.min(other_region), region.max(other_region));
                     let mut other_region_plants = regions.remove(other_region);
                     for &[i, j] in &other_region_plants {
                         plants[i][j] = (plant, region);
