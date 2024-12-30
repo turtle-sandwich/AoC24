@@ -14,6 +14,7 @@ pub mod day13;
 pub mod day14;
 pub mod day15;
 pub mod day16;
+pub mod day17;
 
 /// Common return type of puzzle solutions
 pub type PuzzleResult = Result<String, Box<dyn std::error::Error>>;
@@ -52,6 +53,7 @@ pub fn solve(day: usize, part: usize, input: String) -> PuzzleResult {
         (15, 2) => day15::part2(input),
         (16, 1) => day16::part1(input),
         (16, 2) => day16::part2(input),
+        (17, 1) => day17::part1(input),
         (day, part) => Err(format!("no solution for day {day} part {part}"))?,
     }
 }
